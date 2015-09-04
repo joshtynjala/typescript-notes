@@ -1,6 +1,6 @@
 # Class Decomposition
 
-When a TypeScript definition file contains one or more interfaces and a variable that all have the same name, this is called *class decomposition*.
+When a TypeScript definition file contains an interface and a variable with the same name, this is called *class decomposition*. Additionally, a second interface may modify the class further. One interface may define the *instance side* members of the class, and the other may define the *static side*.
 
 	interface Function {
 		apply(thisArg: any, argArray?: any): any;
@@ -27,7 +27,7 @@ When a TypeScript definition file contains one or more interfaces and a variable
 
 TypeScript's `lib.d.ts` seems to always declare the interface first, before the variable, like in the example above.
 
-However, DefinitelyTyped's [`node.d.ts`](https://github.com/borisyankov/DefinitelyTyped/blob/16c494b98619ae7aace3226f6d542a56e23109c7/node/node.d.ts) proves that this order is not required. The `ucs2` class in the `"punycode"` module is a decomposed class where the variable is declared before the interface.
+However, DefinitelyTyped's [`node.d.ts`](https://github.com/borisyankov/DefinitelyTyped/blob/16c494b98619ae7aace3226f6d542a56e23109c7/node/node.d.ts) proves that this order is not required. The `ucs2` type in the `"punycode"` module is a decomposed class where the variable is declared before the interface.
 
 	declare module "punycode" {
 		export var ucs2: ucs2;
